@@ -129,7 +129,7 @@
 				                	<td style="width:18%; border: 1px solid black; overflow: hidden;">
 				                		<p t-field="doc.picking_policy"/>
 				                	</td>
-				                	<td style="width:6%; border: 1px solid black; overflow: hidden;">
+				                	<td style="width:6%; border: 1px solid black; overflow: hidden;">1
 				                		<!-- <div class="footer">
 				                			<span class="page" />
 				                		</div>	 -->
