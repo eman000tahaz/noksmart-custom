@@ -161,7 +161,7 @@
 				                		<t t-set="pr" t-value="l.price_subtotal / l.product_qty"/>
 				                		<span t-esc="pr"/>
 				                	</td>
-				                	<td style="width:9%; border: 1px solid black; overflow: hidden;">0</td>
+				                	<td style="width:9%; border:none; border-left: 1px solid black; overflow: hidden;">0</td>
 				                	<td style="width:16%; border:none; border-left: 1px solid black; border-right:1px solid black; overflow: hidden;">
 				                		<span t-field="l.price_subtotal" 
 		                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
