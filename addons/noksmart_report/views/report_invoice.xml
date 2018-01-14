@@ -25,6 +25,7 @@
 						                <tbody class="invoice_tbody">
 						                    <tr>
 						                        <td style="border: 1px solid black;">
+						                        	<span t-if="o.state == 'draft'">SI-Draft</span>
 						                        	<span t-field="o.number"/>
 						                    	</td>
 						                        <td style="border: 1px solid black;">
