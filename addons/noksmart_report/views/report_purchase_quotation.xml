@@ -155,7 +155,7 @@
 				                		<span t-field="l.qty_received"/>
 				                	</td>
 				                	<td style="width:9%; border:none; border-left:1px solid black; overflow: hidden;">
-				                		<span t-field="l.price_unit"/>
+				                		<!-- <span t-field="l.price_unit"/> -->
 				                		<t t-set="pr" t-value="l.price_subtotal / l.product_qty"/>
 				                		<span t-esc="pr"/>
 				                	</td>
