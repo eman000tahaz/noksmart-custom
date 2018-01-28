@@ -11,30 +11,31 @@ class AccountAccountInherit(models.Model):
 
     @api.model
     def create(self, vals):
-    	if vals['parent_id'] != False:
-    		parent_acc = self.env['account.account'].search([('id', '=', vals['parent_id'])])
-    		if parent_acc.parent_id:
-    			if parent_acc.child_ids:
-    				ids=[]
-    				for child in parent_acc.child_ids:
-    					ids.append(child.id)
-    				last_child_acc = self.env['account.account'].search([('id', 'in', ids)], order='id desc', limit=1)
-    				vals['code'] = str(int(last_child_acc.code)+1)	
-    			else:
-    				vals['code'] = parent_acc.code + "00" +str(1)
-    		else:
-    			if parent_acc.child_ids:
-    				ids=[]
-    				for child in parent_acc.child_ids:
-    					ids.append(child.id)
-    				last_child_acc = self.env['account.account'].search([('id', 'in', ids)], order='id desc', limit=1)
-    				vals['code'] = str(int(last_child_acc.code)+1000)	
-    			else:
-    				vals['code'] = str(int(parent_acc.code)+1000)
-    	else:
-    		accounts_last_id = self.env['account.account'].search([('parent_id', '=', False)], order='id desc', limit=1)
-    		if not accounts_last_id:
-    			vals['code'] = str(10000000)
-    		else:
-    			vals['code'] = str(int(accounts_last_id.code)+10000000)
-    	return super(AccountAccountInherit, self).create(vals)
+        if vals['code'] == False:
+        	if vals['parent_id'] != False:
+        		parent_acc = self.env['account.account'].search([('id', '=', vals['parent_id'])])
+        		if parent_acc.parent_id:
+        			if parent_acc.child_ids:
+        				ids=[]
+        				for child in parent_acc.child_ids:
+        					ids.append(child.id)
+        				last_child_acc = self.env['account.account'].search([('id', 'in', ids)], order='id desc', limit=1)
+        				vals['code'] = str(int(last_child_acc.code)+1)	
+        			else:
+        				vals['code'] = parent_acc.code + "00" +str(1)
+        		else:
+        			if parent_acc.child_ids:
+        				ids=[]
+        				for child in parent_acc.child_ids:
+        					ids.append(child.id)
+        				last_child_acc = self.env['account.account'].search([('id', 'in', ids)], order='id desc', limit=1)
+        				vals['code'] = str(int(last_child_acc.code)+1000)	
+        			else:
+        				vals['code'] = str(int(parent_acc.code)+1000)
+        	else:
+        		accounts_last_id = self.env['account.account'].search([('parent_id', '=', False)], order='id desc', limit=1)
+        		if not accounts_last_id:
+        			vals['code'] = str(10000000)
+        		else:
+        			vals['code'] = str(int(accounts_last_id.code)+10000000)
+        return super(AccountAccountInherit, self).create(vals)
