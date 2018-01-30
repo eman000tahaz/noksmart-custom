@@ -9,6 +9,8 @@
     'depends': ['account'],
     'data': [
         'views/account_views.xml',
+        'wizard/account_report_trial_balance_view.xml',
+        'views/report_trialbalance.xml',
     ],
     'demo': [
     ],

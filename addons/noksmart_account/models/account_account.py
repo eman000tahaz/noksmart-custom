@@ -22,20 +22,20 @@ class AccountAccountInherit(models.Model):
         				last_child_acc = self.env['account.account'].search([('id', 'in', ids)], order='id desc', limit=1)
         				vals['code'] = str(int(last_child_acc.code)+1)	
         			else:
-        				vals['code'] = parent_acc.code + "00" +str(1)
+        				vals['code'] = parent_acc.code +str(1)
         		else:
         			if parent_acc.child_ids:
         				ids=[]
         				for child in parent_acc.child_ids:
         					ids.append(child.id)
         				last_child_acc = self.env['account.account'].search([('id', 'in', ids)], order='id desc', limit=1)
-        				vals['code'] = str(int(last_child_acc.code)+1000)	
+        				vals['code'] = str(int(last_child_acc.code)+100000)	
         			else:
-        				vals['code'] = str(int(parent_acc.code)+1000)
+        				vals['code'] = str(int(parent_acc.code)+100000)
         	else:
         		accounts_last_id = self.env['account.account'].search([('parent_id', '=', False)], order='id desc', limit=1)
         		if not accounts_last_id:
-        			vals['code'] = str(10000000)
+        			vals['code'] = str(1000000000)
         		else:
-        			vals['code'] = str(int(accounts_last_id.code)+10000000)
+        			vals['code'] = str(int(accounts_last_id.code)+1000000000)
         return super(AccountAccountInherit, self).create(vals)
