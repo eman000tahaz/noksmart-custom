@@ -6,7 +6,7 @@ from odoo import fields, models
 class AccountBalanceReportInherit(models.TransientModel):
 	_inherit = "account.balance.report"
 
-	rep_view = fields.Selection([('p_view', 'Parent View'),('c_view', 'Children View'),('t_view', 'Tree View')], string='View Type')
+	rep_view = fields.Selection([('p_view', 'Parent View'),('c_view', 'Children View'),('t_view', 'Tree View')], string='View Type', default='t-view', required=True)
 
 	def _print_report(self, data):
 		data['form'].update(self.read(['rep_view'])[0])

@@ -65,7 +65,7 @@
 				                    </t>
 				                    <t t-else="">
 				                    	<t t-foreach="Accounts" t-as="c_account">
-				                    	<tr t-if="c_account['children'] != False" style="background:wheat;">
+				                    	<tr t-if="c_account['parent'] == False and c_account['children'] != False" style="background:lightblue;">
 			                        		<td>
 				                                <span t-att-style="style" t-esc="c_account['code']"/>
 				                            </td>
@@ -83,7 +83,25 @@
 				                                <span t-att-style="style" t-esc="c_account['balance']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
 				                            </td>
 				                       </tr>
-				                       <tr t-else="">
+				                       <tr t-if="c_account['parent'] != False and c_account['children'] != False" style="background:lightgreen;">
+			                        		<td>
+				                                <span t-att-style="style" t-esc="c_account['code']"/>
+				                            </td>
+				                            <td>
+				                                <span style="color: white;" t-esc="'..'"/>
+				                                <span t-att-style="style" t-esc="c_account['name']"/>
+				                            </td>
+				                            <td class="text-right">
+				                                 <span t-att-style="style" t-esc="c_account['debit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+				                            </td>
+				                            <td class="text-right">
+				                                <span t-att-style="style" t-esc="c_account['credit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+				                            </td>
+				                            <td class="text-right">
+				                                <span t-att-style="style" t-esc="c_account['balance']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+				                            </td>
+				                       </tr>
+				                       <tr t-if="c_account['children'] == False">
 			                        		<td>
 				                                <span t-att-style="style" t-esc="c_account['code']"/>
 				                            </td>
