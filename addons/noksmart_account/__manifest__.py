@@ -11,6 +11,9 @@
         'views/account_views.xml',
         'wizard/account_report_trial_balance_view.xml',
         'views/report_trialbalance.xml',
+        'views/noksmart_account_report.xml',
+        'wizard/account_report_statement_view.xml',
+        'views/report_account_statement.xml',
     ],
     'demo': [
     ],
