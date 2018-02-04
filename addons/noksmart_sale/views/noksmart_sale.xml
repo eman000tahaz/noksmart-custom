@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <report 
+            id="sale_order_report_action"
+            model="sale.order.report"
+            string="Sales Report"
+            report_type="qweb-pdf"
+            name="noksmart_sale.report_sale_order"
+            file="noksmart_sale.report_sale_order"
+            />
+
+    </data>
+</odoo>
