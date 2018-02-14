@@ -8,6 +8,7 @@
     'summary': 'Noksmart Sale',
     'depends': ['sale', 'sale_margin', 'account'],
     'data': [
+        'security/ir.model.access.csv',
         'views/crm_team_views.xml',
         'wizard/sale_order_report_view.xml',
         'views/noksmart_sale.xml',
